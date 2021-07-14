@@ -2,9 +2,6 @@ package com.ekart.dto;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 
 public class SellerDTO {
 	private Integer sellerId;
@@ -12,9 +9,6 @@ public class SellerDTO {
 	private String sellerEmail;
 	private String sellerAddress;
 	private String sellerPassword;
-	
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name="seller_id")
 	private List<ProductsDTO> products;
 	
 	public List<ProductsDTO> getProducts() {

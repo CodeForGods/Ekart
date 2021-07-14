@@ -1,5 +1,6 @@
 package com.ekart.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
@@ -8,8 +9,10 @@ import org.jasypt.util.password.StrongPasswordEncryptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ekart.dto.ProductsDTO;
 import com.ekart.dto.SellerDTO;
 import com.ekart.entity.Seller;
+import com.ekart.exception.SellerServiceException;
 import com.ekart.repository.SellerRepository;
 
 @Service(value = "sellerServiceImpl")
@@ -48,4 +51,18 @@ public class SellerServiceImpl implements SellerService {
 		}
 		
 	}
+	
+	@Override
+	public List<ProductsDTO> getProducts(String emailId) throws SellerServiceException {
+		
+		Optional<Seller> opt = sellerRepository.findBySellerEmail(emailId);
+		Seller s  = opt.orElseThrow(()->new SellerServiceException("SellerService.NO_SELLER_FOUND"));
+		
+		System.out.println(s.getProducts());
+		return null;
+
+	}
+
+	
+	
 }

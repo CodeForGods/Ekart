@@ -1,12 +1,15 @@
 package com.ekart.entity;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-
 
 @Entity
 public class Seller {
@@ -17,6 +20,15 @@ public class Seller {
 	private String sellerEmail;
 	private String sellerAddress;
 	private String sellerPassword;
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name="seller_id")
+	private List<Products> products;
+	public List<Products> getProducts() {
+		return products;
+	}
+	public void setProducts(List<Products> products) {
+		this.products = products;
+	}
 	public Integer getSellerId() {
 		return sellerId;
 	}

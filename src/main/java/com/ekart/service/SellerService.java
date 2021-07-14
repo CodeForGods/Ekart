@@ -11,8 +11,7 @@ public interface SellerService {
 	
 	public String loginSeller(SellerDTO seller) throws Exception;
 	
-//	public List<ProductsDTO> getProducts(String emailId) throws Exception;
-
-	//hello
+	public List<ProductsDTO> getProducts(String emailId) throws Exception;
+	
 	
 }

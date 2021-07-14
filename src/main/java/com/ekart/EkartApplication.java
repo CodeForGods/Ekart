@@ -26,6 +26,6 @@ public class EkartApplication implements CommandLineRunner {
 		seller.setSellerEmail("devEncrypted@ias");
 		seller.setSellerName("DeveshEncrypted");
 		seller.setSellerPassword("dera1@123");
-		System.out.println(sellerServiceImpl.loginSeller(seller));
+		System.out.println(sellerServiceImpl.getProducts("x3x@x.com"));
 	}
 }

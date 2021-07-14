@@ -8,8 +8,6 @@ import com.ekart.entity.Seller;
 
 public interface SellerRepository extends CrudRepository<Seller, Integer>{
 	
-		
 	Optional<Seller> findBySellerEmail(String emailId);
-		
-
+	
 }
